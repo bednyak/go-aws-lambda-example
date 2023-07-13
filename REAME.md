@@ -1,4 +1,6 @@
-How to run Lamdba
+# Go-AWS-Lambda-example
+
+### How to run Lamdba
 
 1. Install AWS-Cli
 2. Set AWS-Cli global config on your machine
@@ -7,7 +9,7 @@ How to run Lamdba
 aws iam create-role --role-name lambda-ex --assume-role-policy-document '{"Version": "2012-10-17", "Statement": [{ "Effect": "Allow", "Principal": { "Service": "lambda.amazonaws.com" }, "Action": "sts:AssumeRole" }] }'
 ```
 
-OR
+#### OR
 
 1. Create 'trust-policy.json' file
 2. Add next code to 'trust-policy.json'
@@ -30,7 +32,7 @@ OR
 aws iam create-role --role-name lambda-ex --assume-role-policy-document file://trust-policy.json
 ```
 
-After creating role and policies
+### After creating role and policies
 
 1. Build Go project
 ```
@@ -45,7 +47,7 @@ zip function.zip main
 aws lambda create-function --function-name go-aws-lambda-example --zip-file fileb://function.zip --handler main --runtime go1.x --role arn:aws:iam::[YOUR_ID]:role/lambda-ex
 ```
 
-Finish
+### Finish
 
 Now we can invoke this lambda function with next command
 
